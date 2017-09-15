@@ -55,7 +55,7 @@ if not pattern.match(salt):
 
 hash_string = getHash(getHash(key_sentence) + salt)
 
-passwordLength = int(salt[0 : 2])
+passwordLength = int(salt[0:2])
 oneGroupLength = int(64 / passwordLength)
 passwordType = salt[2]
 characterSet = characterSetAll[passwordType]
