@@ -1,13 +1,21 @@
+import string
 import hashlib
 import re
 
 def getHash(oneString):
 	return hashlib.sha256(oneString.encode('utf-8')).hexdigest()
 
-#s_number = "".join([chr(i) for i in range(48, 58)])
-#s_lowercase = "".join([chr(i) for i in range(97, 123)])
-#s_uppercase = "".join([chr(i) for i in range(65, 91)])
-#
+s_number = string.digits
+#0123456789
+
+s_lowercase = string.ascii_lowercase
+#abcdefghijklmnopqrstuvwxyz
+
+s_uppercase = string.ascii_uppercase
+#ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+s_special = "!#$%&'()*+,-./:;<=>?@[\\]^_{}~"
+
 #list_special = [chr(i) for i in range(33, 127)]
 #list_special.remove('"')
 #list_special.remove('`')
@@ -16,17 +24,17 @@ def getHash(oneString):
 #	list_special.remove(c)
 #s_special = "".join(list_special)
 
-s_number = "0123456789"
-s_lowercase = "abcdefghijklmnopqrstuvwxyz"
-s_uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-s_special = "!#$%&'()*+,-./:;<=>?@[\\]^_{}~"
+s_special_old = "{}()[]#:;,.?!=+-*_~@$%^"
 
 characterSetAll = {}
-characterSetAll["a"] = "0123456789"
-characterSetAll["b"] = "abcdefghijklmnopqrstuvwxyz"
-characterSetAll["c"] = "0123456789abcdefghijklmnopqrstuvwxyz"
-characterSetAll["d"] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-characterSetAll["e"] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ{}()[]#:;,.?!=+-*_~@$%^"
+
+#abcde will be revoked after 2017/10/15
+characterSetAll["a"] = s_number
+characterSetAll["b"] = s_lowercase
+characterSetAll["c"] = s_uppercase
+characterSetAll["d"] = s_number + s_lowercase + s_uppercase
+characterSetAll["e"] = s_number + s_lowercase + s_uppercase + s_special_old
+
 characterSetAll["A"] = s_number
 characterSetAll["B"] = s_lowercase
 characterSetAll["C"] = s_number * 3 + s_lowercase
@@ -56,7 +64,7 @@ if not pattern.match(salt):
 hash_string = getHash(getHash(key_sentence) + salt)
 
 passwordLength = int(salt[0:2])
-oneGroupLength = int(64 / passwordLength)
+oneGroupLength = 64 // passwordLength
 passwordType = salt[2]
 characterSet = characterSetAll[passwordType]
 
