@@ -24,16 +24,7 @@ s_special = "!#$%&'()*+,-./:;<=>?@[\\]^_{}~"
 #	list_special.remove(c)
 #s_special = "".join(list_special)
 
-s_special_old = "{}()[]#:;,.?!=+-*_~@$%^"
-
 characterSetAll = {}
-
-#abcde will be revoked after 2017/10/15
-characterSetAll["a"] = s_number
-characterSetAll["b"] = s_lowercase
-characterSetAll["c"] = s_uppercase
-characterSetAll["d"] = s_number + s_lowercase + s_uppercase
-characterSetAll["e"] = s_number + s_lowercase + s_uppercase + s_special_old
 
 characterSetAll["A"] = s_number
 characterSetAll["B"] = s_lowercase
@@ -55,7 +46,7 @@ print("Please input salt.")
 salt = input("-->")
 print("--------------------------------------------------")
 
-pattern = re.compile(r"^(0[4-9]|1[0-9]|20)[a-eA-E]\w+$")
+pattern = re.compile(r"^(0[4-9]|1[0-9]|20)[A-E]\w+$")
 if not pattern.match(salt):
 	print("Error with salt! Crashed!")
 	print("--------------------------------------------------")

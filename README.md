@@ -13,16 +13,15 @@ This repository is used to share python3 source code of the algorithm.
 My name is Lei Zhang. My email is [zhoiletmessage@gmail.com](mailto:zhoiletmessage@gmail.com).
 
 ---
----
 
-### Disclaimer:
+### Disclaimer
 
 User agrees that all risks related to the use of this software will be undertaken entirely by the user. The author (Lei Zhang) is not responsible for any loss that may occur.
 
 Here "this software" includes iOS app (any version), python code and web version.
 
 
-###免责声明: 
+### 免责声明
 
 用户同意其使用本软件所存在的风险将完全由用户本人承担。作者（章雷）对可能发生的损失不承担任何责任。 
 
