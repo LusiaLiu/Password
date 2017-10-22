@@ -2,7 +2,7 @@
 
 ## what is this?
 
-Password app is an elegent and powerful password management software. It uses algorithm based on SHA256 to ensure the security of your passwords. Besides, it is amazingly easy to use.
+Password app is an elegant and powerful password management software. It uses an algorithm based on SHA256 to ensure the security of your passwords. Besides, it is amazingly easy to use.
 
 The app is avaliable in [App Store](https://itunes.apple.com/app/password-by-lei-zhang/id1248596510/).
 
