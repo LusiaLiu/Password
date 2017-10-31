@@ -46,7 +46,7 @@ print("Please input salt.")
 salt = input("-->")
 print("--------------------------------------------------")
 
-pattern = re.compile(r"^(0[4-9]|1[0-9]|20)[A-E]\w+$")
+pattern = re.compile(r"^(0[4-9]|1[0-9]|20)[A-E][A-Za-z0-9]+$")
 if not pattern.match(salt):
 	print("Error with salt! Crashed!")
 	print("--------------------------------------------------")
