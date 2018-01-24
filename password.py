@@ -6,23 +6,22 @@ def getHash(oneString):
 	return hashlib.sha256(oneString.encode('utf-8')).hexdigest()
 
 s_number = string.digits
-#0123456789
+# 0123456789
 
 s_lowercase = string.ascii_lowercase
-#abcdefghijklmnopqrstuvwxyz
+# abcdefghijklmnopqrstuvwxyz
 
 s_uppercase = string.ascii_uppercase
-#ABCDEFGHIJKLMNOPQRSTUVWXYZ
+# ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-s_special = "!#$%&'()*+,-./:;<=>?@[\\]^_{}~"
-
-#list_special = [chr(i) for i in range(33, 127)]
-#list_special.remove('"')
-#list_special.remove('`')
-#list_special.remove('|')
-#for c in s_number + s_lowercase + s_uppercase:
-#	list_special.remove(c)
-#s_special = "".join(list_special)
+list_special = [chr(i) for i in range(33, 127)]
+list_special.remove('"')
+list_special.remove('`')
+list_special.remove('|')
+for c in s_number + s_lowercase + s_uppercase:
+	list_special.remove(c)
+s_special = "".join(list_special)
+# !#$%&'()*+,-./:;<=>?@[\]^_{}~
 
 characterSetAll = {}
 
@@ -49,6 +48,8 @@ print("--------------------------------------------------")
 pattern = re.compile(r"^(0[4-9]|1[0-9]|20)[A-E][A-Za-z0-9]+$")
 if not pattern.match(salt):
 	print("Error with salt! Crashed!")
+	print("You can go to the following website to read the instructions.")
+	print("https://www.leizhang.me/password/")
 	print("--------------------------------------------------")
 	exit(1)
 
